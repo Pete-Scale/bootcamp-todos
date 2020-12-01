@@ -25,6 +25,8 @@ function renderTodos(){
         // apend li to todoList
         todoList.appendChild(li)
     }
+    // Update todos counter
+    todoCountSpan.innerText = todos.length;
 }
 
 // Adding Todos
@@ -47,9 +49,11 @@ function addTodo(event){
 
 // Remove Todos
 function removeTodo(event){
+    console.log(event, "I am event");
     var target = event.target
     if (target.matches('button')){
         // find index from li
+        // var li_tag_wrapper_parent_figure = target.parentNode;
         var index = parseInt(target.parentNode.getAttribute('data-index'))
         // remove the todo from todos array
         todos.splice(index, 1)
